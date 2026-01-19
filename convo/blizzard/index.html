@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord-style Conversation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #191c23;
+            color: #dcddde;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #191c23;
+        }
+
+        .chat-header {
+            background-color: #191c23;
+            padding: 15px 20px;
+            border-bottom: 1px solid #686b71;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .username-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .down-arrow {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .down-arrow:hover {
+            opacity: 1;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b5bac1;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .header-icon:hover {
+            color: #ffffff;
+        }
+
+        .chat-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .date-separator {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .date-separator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #686b71;
+            z-index: 0;
+        }
+
+        .date-separator span {
+            background-color: #191c23;
+            padding: 0 10px;
+            font-size: 12px;
+            color: #686b71;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        .message {
+            display: flex;
+            padding: 8px 16px;
+            margin-bottom: 4px;
+            gap: 16px;
+            transition: background-color 0.1s;
+        }
+
+        .message:hover {
+            background-color: #32353b;
+        }
+
+        .chat-header .avatar-wrapper {
+            width: 56px;
+            height: 56px;
+        }
+
+        .chat-header .avatar {
+            width: 56px;
+            height: 56px;
+            font-size: 24px;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .avatar-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .avatar.user2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 14px;
+            height: 14px;
+            background-color: #23a55a;
+            border: 3px solid #191c23;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .message-content {
+            flex: 1;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .username {
+            font-weight: 500;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #72767d;
+        }
+
+        .message-text {
+            color: #dcddde;
+            font-size: 15px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message-link {
+            display: inline-block;
+            background-color: #2f3136;
+            border: 1px solid #202225;
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin-top: 4px;
+            text-decoration: none;
+            color: #00aff4;
+            font-size: 14px;
+            transition: background-color 0.1s;
+        }
+
+        .message-link:hover {
+            background-color: #292b2f;
+            text-decoration: underline;
+        }
+
+        .message-embed {
+            background-color: #eaebef;
+            border-left: 4px solid #00aff4;
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin-top: 4px;
+            max-width: 520px;
+        }
+
+        .title-bubble {
+            background-color: #eaebef;
+            color: #1a1c23;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: block;
+            margin-top: 4px;
+            font-weight: 400;
+            font-size: 14px;
+            width: fit-content;
+        }
+
+        .link-bubble {
+            background-color: #eaebef;
+            color: #1a1c23;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: block;
+            margin-top: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            word-break: break-all;
+            transition: background-color 0.1s;
+            width: fit-content;
+        }
+
+        .link-bubble:hover {
+            background-color: #d5d7dc;
+            text-decoration: underline;
+        }
+
+        .embed-title {
+            color: #1a1c23;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .user-message {
+            background-color: #7ac0fc;
+            color: #1a1c23;
+            padding: 10px 16px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+        .chat-input {
+            border-top: 1px solid #686b71;
+            padding: 15px 20px;
+            background-color: #191c23;
+            margin-top: 20px;
+        }
+
+        .chat-input img {
+            width: 100%;
+            display: block;
+        }    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="avatar-wrapper">
+                    <div class="avatar">P</div>
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="username-section">
+                    <h2>PearlStag</h2>
+                    <img src="down-arrow.png" alt="Down arrow" class="down-arrow">
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="header-right.png" alt="Header image">
+            </div>
+        </div>
+
+        <div class="date-separator">
+            <span>Monday, January 19, 2026</span>
+        </div>
+
+        <div class="message">
+            <div class="avatar">P</div>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">PearlStag (Aljohn Arranguez)</span>
+                    <span class="timestamp">8:35 PM</span>
+                </div>
+                <div class="title-bubble">Hello, can I have a second please? I wanted to clarify if you want some games?</div>
+            </div>
+        </div>
+
+        <div class="message">
+            <img src="user-prof.png" alt="kuro" class="avatar-img">
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">kuro</span>
+                    <span class="timestamp">8:35 PM</span>
+                </div>
+                <div class="user-message">
+                    sure! how?
+                </div>
+            </div>
+        </div>
+
+        <div class="message">
+            <div class="avatar">P</div>
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">PearlStag (Aljohn Arranguez)</span>
+                    <span class="timestamp">8:36 PM</span>
+                </div>
+                <div class="title-bubble">Free World of Warcraft: Subscription</div>
+                <a href="https://us.shop.battle.net/free-world-of-warcraft-subscription" class="link-bubble" target="_blank">
+                    https://us.shop.battle.net/free-world-of-warcraft-subscription
+                </a>
+            </div>
+        </div>
+
+        <div class="message">
+            <img src="user-prof.png" alt="kuro" class="avatar-img">
+            <div class="message-content">
+                <div class="message-header">
+                    <span class="username">kuro</span>
+                    <span class="timestamp">8:38 PM</span>
+                </div>
+                <div class="user-message">
+                    I just click the link and fill it up but nothing happened can you please help me?
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input">
+            <img src="chat-input.png" alt="Chat input">
+        </div>
+    </div>
+</body>
+</html>
