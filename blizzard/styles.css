@@ -6,15 +6,21 @@
 
 body {
     font-family: Sanz, Arial;
+    background-image: url('gmail-bg.png');
     background-color: #f4f4f9;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /* Header Section Styling */
 .header-section {
     width: 100%;
-    background-color: #f8fafd;
+    background-color: transparent;
     padding: 10px 20px;
     box-sizing: border-box;
     position: fixed;
@@ -165,12 +171,7 @@ h1 {
     font-weight: bold;
     margin: 0;
 }
-html, body {
-    background-color: #f8fafd;
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Ensure the body spans the full height */
-}
+
 .email-container {
     
     max-width: 2000px; /* Increased width of the container */
@@ -191,7 +192,7 @@ html, body {
     height: 100vh;
     margin-left: 260px;
     border-radius: 20px;
-    margin-top: 70px;
+    margin-top: 20px;
 }
 .email-top-image {
     margin-top: 15px;
@@ -475,10 +476,10 @@ footer {
 }
 .sidebar {
     width: 240px;
-    background-color: #f8fafd;
+    background-color: transparent;
     padding: 20px;
     position: fixed;
-    top: 60px; /* Adjusted to be below the header */
+    top: 5px; /* Adjusted to be below the header */
     bottom: 0;
     left: 0;
     overflow-y: auto;
@@ -487,7 +488,7 @@ footer {
 .sidebar h2 {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #5f6368;
+    color: #ffffff;
 }
 
 .sidebar ul {
@@ -501,7 +502,7 @@ footer {
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #202124;
+    color: #ffffff;
     font-size: 16px;
     font-family: Sanz;
     display: flex;
@@ -523,7 +524,7 @@ footer {
 
 .item-count {
     font-size: 12px;
-    color: #5f6368;
+    color: #ffffff;
     margin-left: 100px; /* Space between the text and the icon */
 }
 
@@ -533,7 +534,7 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: #c2e7ff;
-    color: black;
+    color: #202124;
     font-size: 14px;
     font-weight: bold;
     border: none;
@@ -577,7 +578,7 @@ footer {
 
   .sidebar ul li a {
     text-decoration: none;
-    color: #202124;
+    color: #ffffff;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -629,7 +630,7 @@ footer {
     margin-top: 20px; /* Add spacing above the Labels section */
     padding: 5px 10px;
     font-size: 18px;
-    color: rgb(34, 34, 34); /* Subtle gray color */
+    color: #ffffff; /* Subtle gray color */
 }
 
 .labels-title {
@@ -641,7 +642,7 @@ footer {
     border: none;
     font-size: 18px;
     font-weight: bold;
-    color: #5f6368; /* Match the text color */
+    color: #ffffff; /* Match the text color */
     cursor: pointer;
     padding: 0;
 }
@@ -652,4 +653,46 @@ footer {
 .add-label-icon {
     width: 16px; /* Adjust the size of the icon */
     height: 16px;
+}
+
+/* Right Sidebar Styles */
+.right-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 60px;
+    background-color: transparent;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    z-index: 999;
+}
+
+.app-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.app-icon:hover {
+    background-color: #f1f3f4;
+}
+
+.app-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Adjust email container to account for right sidebar */
+.email-container {
+    margin-right: 60px;
 }
