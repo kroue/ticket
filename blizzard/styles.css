@@ -174,8 +174,11 @@ h1 {
 
 .email-container {
     
-    max-width: 2000px; /* Increased width of the container */
+    width: calc(100% - 260px - 60px); /* Full width minus left sidebar and right sidebar */
+    max-width: none; /* Remove max-width restriction */
     margin: 0 auto;
+    margin-left: 260px;
+    margin-right: 60px;
     background: #fefefe;
     padding: 20px 30px; /* Padding on both sides for spacing */
     padding-left: 45px;
@@ -188,9 +191,9 @@ h1 {
     justify-content: flex-start; /* Align content to the top */
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure content is above the pseudo-element */
-    overflow: hidden; /* Prevent the background from overflowing */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling */
     height: 100vh;
-    margin-left: 260px;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -321,8 +324,8 @@ h1 {
     background: linear-gradient(180deg, #012650 0%, #001845 60%);
     border-radius: 0;
     color: white;
-    box-shadow: 0 0 0 500px black;
-    clip-path: inset(0 -500px);
+    box-shadow: 0 0 0 100vw black;
+    clip-path: inset(0 -100vw);
 }
 
 .blizzard-logo-container {
