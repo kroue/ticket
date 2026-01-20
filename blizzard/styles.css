@@ -98,8 +98,8 @@ h1 {
 
 .header-title-container {
     position: absolute;
-    top: 70px; /* Adjust this as needed */
-    left: 60px; /* Adjust this to align with the email content */
+    top: 47px; /* Adjust this as needed */
+    left: 67px; /* Adjust this to align with the email content */
     display: flex;
     align-items: center;
 }
@@ -136,13 +136,13 @@ h1 {
 }
 
 .profile-container {
-    margin-top: 30px;
-    margin-left: -30px;
+    margin-top: -10px;
+    margin-left: -65px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align to the left */
+    justify-content: flex-start;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: -7px;
 }
 .profile-image {
     width: 40px;
@@ -180,9 +180,9 @@ h1 {
     margin-left: 260px;
     margin-right: 60px;
     background: #fefefe;
-    padding: 20px 30px; /* Padding on both sides for spacing */
-    padding-left: 45px;
-    padding-right: 50px;
+    padding: 20px 50px; /* Increased horizontal padding */
+    padding-left: 65px;
+    padding-right: 70px;
     box-sizing: border-box;
     position: relative; /* Required for absolute positioning of the pseudo-element */
     display: flex; /* Enable flexbox for layout */
@@ -192,8 +192,9 @@ h1 {
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure content is above the pseudo-element */
     overflow-x: hidden; /* Prevent horizontal overflow */
-    overflow-y: auto; /* Allow vertical scrolling */
-    height: 100vh;
+    overflow-y: visible; /* Allow vertical overflow */
+    height: auto;
+    min-height: 100vh;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -324,14 +325,14 @@ h1 {
     background: linear-gradient(180deg, #012650 0%, #001845 60%);
     border-radius: 0;
     color: white;
-    box-shadow: 0 0 0 100vw black;
-    clip-path: inset(0 -100vw);
+    box-shadow: 0 0 0 450px black;
+    clip-path: inset(0 -450px);
 }
 
 .blizzard-logo-container {
     text-align: center;
     margin-bottom: 20px;
-    margin-top: -50px;
+    margin-top: -66px;
 }
 
 .blizzard-logo {
@@ -342,13 +343,13 @@ h1 {
 .email-divider {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 20px 0 30px 0;
+    margin: 8px 0 12px 0;
 }
 
 .stay-connected-container {
     background-color: #001845;
     padding: 5px 5px;
-    margin: 30px -40px 20px -40px;
+    margin: -8px -40px -2px -40px;
     text-align: center;
 }
 
@@ -356,12 +357,14 @@ h1 {
     text-align: left;
     margin-top: -40px;
     padding: 20px;
+    margin-bottom: -58px;
 }
 
 .footer-logo {
     width: 120px;
     height: auto;
     margin-bottom: 30px;
+    margin-top: -29px;
     display: block;
     margin-left: auto;
     margin-right: auto;
