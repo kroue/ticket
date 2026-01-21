@@ -1,0 +1,842 @@
+/* General Styles */
+@font-face { font-family: Sanz; src: url('RNSSanz-Light.ttf'); }
+@font-face { font-family: roboto; src: url('Roboto-Light.ttf'); }
+@font-face { font-family: mont; src: url('Montserrat-Light.ttf'); }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: Sanz, Arial;
+    background-image: url('gmail-bg.png');
+    background-color: #f4f4f9;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Header Section Styling */
+.header-section {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 15px; /* Add space between elements */
+}
+.header-section h1 {
+    font-size: 20px;
+    color: #202124;
+    margin: 0;
+}
+.header-logo {
+    height: 25px;
+    margin-right: 0; /* Remove unnecessary margin */
+    margin-left: 0; /* Ensure no extra space on the left of the logo */
+}
+.header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Space between left and right side */
+    align-items: flex-start; /* Align items to top */
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #e9eef6;
+    border-radius: 24px;
+    padding: 5px 10px;
+    width: 700px;
+    height: 40px;
+    margin-left:  70px; /* Add space between the logo and the search bar */
+    margin-right: 850px;
+}
+.search-bar input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 17px;
+    color: #5f6368;
+    flex: 1; /* Makes the input take up available space */
+    padding: 5px;
+}
+.search-bar button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.search-bar button img {
+    width: 16px;
+    height: 16px;
+}
+.header-left {
+    display: flex;
+    flex-direction: column; /* Stack the h1 and profile vertically */
+    justify-content: flex-start;
+    margin-left: 0px;
+    margin-top: 70px; /* Aligns the header title with the logo */
+}
+
+h1 {
+    font-size: 21px;
+    font-family: Sanz;
+    color: #5a5a5a;
+    margin: 0;
+    display: inline-flex; /* Allows the image to align inline with the text */
+    align-items: center; /* Vertically aligns the text and the icon */
+}
+
+.header-title-container {
+    position: absolute;
+    top: 47px; /* Adjust this as needed */
+    left: 67px; /* Adjust this to align with the email content */
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 21px;
+    font-family: Sanz;
+    color: #000000;
+    margin-left: 18px; /* Remove default margin to avoid extra space */
+}
+.burger-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 0px; /* Reduce the space between the burger icon and the logo */
+    padding: 5px;
+}
+
+.burger-icon img {
+    width: 24px;
+    height: 24px;
+}
+.search-icon img,
+.filter-icon img {
+    width: 24px !important; /* Adjust the width of the icons */
+    height: 24px !important; /* Adjust the height of the icons */
+    object-fit: contain; /* Ensures the image scales properly */
+}
+.inbox-icon {
+    margin-top: 3px;
+    width: 48px; /* Adjust the size of the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 8px; /* Add space between the h1 and the icon */
+}
+
+.profile-container {
+    margin-top: -10px;
+    margin-left: -65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: -7px;
+}
+.profile-image {
+    width: 40px;
+    height: 40px;
+    background-image: url('artmo.png'); /* Set the background image */
+    background-size: cover; /* Ensure the image fully covers the element */
+    background-position: center; /* Center the image */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 15px; /* Space between image and text */
+    margin-top: -10px;
+}
+
+.profile-placeholder {
+    width: 35px;
+    height: 35px;
+    background-color: #ddd; /* Grey background to indicate placeholder */
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-info-right {
+    font-size: 14px;
+}
+
+.username {
+    font-weight: bold;
+    margin: 0;
+}
+
+.email-container {
+    
+    width: calc(100% - 260px - 60px); /* Full width minus left sidebar and right sidebar */
+    max-width: none; /* Remove max-width restriction */
+    margin: 0 auto;
+    margin-left: 260px;
+    margin-right: 60px;
+    background: #fefefe;
+    padding: 20px 50px; /* Increased horizontal padding */
+    padding-left: 65px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    position: relative; /* Required for absolute positioning of the pseudo-element */
+    display: flex; /* Enable flexbox for layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center the content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    text-align: left; /* Align text to the left */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: visible; /* Allow vertical overflow */
+    height: auto;
+    min-height: 100vh;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.email-top-image {
+    margin-top: 15px;
+    margin-left: 15px;
+    max-width: 100%; /* Makes the image fit within the container without stretching */
+    height: 30px; /* Maintains the aspect ratio of the image */
+    display: block; /* Removes any extra space below the image */
+    position: absolute; /* Makes it sit on top of the other content */
+    top: 0; /* Aligns it to the top of the container */
+    left: 0; /* Aligns it to the left side of the container */
+}
+.email-container::before {
+    content: none;
+}
+
+
+
+/* Email Profile Section */
+.email-profile-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Space from top of the email container */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding inside the rectangle */
+    border: 1px solid #c9c9c9; /* Black border around the profile */
+    box-sizing: border-box; /* Ensure padding is inside the border */
+    margin-left: auto; /* Ensure it's aligned to the center horizontally */
+    margin-right: auto; /* Ensure it's aligned to the center horizontally */
+    width: 300px;
+    height: 80px;
+}
+
+.email-profile-container img {
+    width: 44px; /* Set the width of the profile image */
+    height: 44px; /* Set the height of the profile image */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 5px; /* Space between profile image and text */
+}
+
+.email-user-info-right {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column; /* Stack username and handle vertically */
+    align-items: flex-start; /* Align text to the left */
+}
+
+.email-username {
+    font-family: mont;
+    font-size: 17px;
+    font-weight: normal;
+    margin: 0;
+    display: flex; /* Make text and image align horizontally */
+    align-items: center; /* Aligns the blue check vertically with the text */
+}
+
+.blue-check-icon {
+    margin-right: -1px;
+    margin-left: 1px;
+    width: 12px !important;
+    height: auto !important;
+}
+.blue-check-icon-user {
+    margin-right: -1px;
+    margin-left: 3px;
+    width: 14px !important;
+    height: auto !important;
+}
+.x-logo {
+    position: flex-start; /* Changed from absolute */
+    margin-top: 0px; /* Space below profile-container */
+    margin-left:-900px;
+    width: 60px !important;
+    height: auto !important;
+}
+
+.email-text {
+    font-weight: bold;  /* Change to desired font weight */
+    color: #333; /* Optional: you can change the color if needed */
+    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.handle {
+    font-family: mont;
+    color: #888;
+    font-size: 12px;
+    margin: 0;
+}
+.handle-header {
+    font-family: Sanz;
+    color: #888;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+/* Right side icons */
+.header-right {
+    position: absolute; /* Position it relative to the email-container */
+    top: 60px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+    display: flex;
+    flex-direction: column; /* Stack the rows vertically */
+    align-items: flex-end; /* Align items to the right */
+    gap: 10px; /* Add spacing between rows */
+}
+
+.header-icons-row-first,
+.header-icons-row-second {
+    display: flex;
+    gap: 10px; /* Add spacing between icons */
+}
+/* Icons Styling */
+.header-icon {
+    width: 21px; /* Same width as h1 to make icons the same size */
+    height: auto;
+    margin-right: 4px; /* Space between icons */
+}
+
+/* Email Body Styling */
+
+.email-body {
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 0;
+    color: #333333;
+    box-shadow: 0 0 0 450px white;
+    clip-path: inset(0 -450px);
+}
+
+.artmo-logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -44px;
+}
+
+.artmo-main-logo {
+    width: 120px;
+    height: auto;
+}
+
+.new-message-heading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #333333;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.greeting-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    margin: 25px 0 15px 0;
+}
+
+.message-intro {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    margin: 15px 0;
+}
+
+.report-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.report-content p {
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 12px 0;
+}
+
+.report-content .section-title {
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.report-content .support-option {
+    margin-top: 15px;
+}
+
+.contact-box {
+    background-color: transparent;
+    color: white;
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contact-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-label {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.sender-name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333333;
+    margin: 15px 0 5px 0;
+}
+
+.sender-info {
+    text-align: center;
+    font-size: 13px;
+    color: #666666;
+    margin: 5px 0 25px 0;
+}
+
+.view-message-button {
+    display: block;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 12px 30px;
+    margin: 25px auto;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    width: fit-content;
+    transition: background-color 0.3s;
+}
+
+.view-message-button:hover {
+    background-color: #333333;
+}
+
+.footer-logo-inline {
+    width: 60px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 11px;
+    color: #666666;
+    margin: 20px 0 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blizzard-logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -66px;
+}
+
+.blizzard-logo {
+    width: 140px;
+    height: auto;
+}
+
+.email-divider {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: -13px 0 -21px 0;
+}
+
+.stay-connected-container {
+    background-color: #f5f5f5;
+    padding: 5px 5px;
+    margin: -8px -40px -2px -40px;
+    text-align: center;
+}
+
+.email-footer {
+    text-align: center;
+    margin-top: -7px;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: -29px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-text {
+    font-size: 10px;
+    color: #666666;
+    margin: 5px 0;
+    line-height: 1.5;
+    padding: 0;
+    text-align: center;
+}
+
+.footer-text a {
+    color: #4a9eff;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
+
+.email-body p {
+    color: #333333;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.email-body .email-text {
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.footext {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.email-body a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.email-body a:hover {
+    text-decoration: underline;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.alert {
+    color: #d60000;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 50px;
+    margin-left: 50px;
+}
+
+.note {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 15px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin-left: 240px;
+    margin-right: 240px;
+}
+
+ul {
+    list-style-type: disc; /* Makes the bullets appear */
+    margin-left: 20px; /* Indentation of the list */
+    color: #333; /* Text color */
+    font-size: 14px; /* Font size */
+}
+
+ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.behavior {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+.case{
+    text-align: center;
+}
+/* Footer Section */
+footer {
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Remove Gaps */
+.header-section + .email-container {
+    margin-top: 0;
+}
+
+.email {
+    font-size: 13px;
+    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif; 
+    margin-left: 85px;
+    margin-top: -18px;
+    color:#5e5e5e;
+
+}
+.sidebar {
+    width: 240px;
+    background-color: transparent;
+    padding: 20px;
+    position: fixed;
+    top: 5px; /* Adjusted to be below the header */
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: Sanz;
+    display: flex;
+    align-items: center;
+    text-align: left; /* Ensure text is aligned to the left */
+    padding: 1px; /* Add padding for better spacing */
+}
+
+.sidebar ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Space between the icon and the text */
+}
+
+.sidebar ul li a:hover {
+    background-color: #e8eaed;
+    border-radius: 5px;
+}
+
+.item-count {
+    font-size: 12px;
+    color: #ffffff;
+    margin-left: 100px; /* Space between the text and the icon */
+}
+
+/* Compose Button Styling */
+.compose-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c2e7ff;
+    color: #202124;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 19px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 140px; /* Width of the button */
+    height: 60px;
+}
+
+.compose-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.bold-item {
+    font-weight: bold;
+}
+.compose-button:hover {
+    background-color: #d2e3fc;
+}
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icons */
+}
+
+.header-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.header-profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Makes the profile icon circular */
+    cursor: pointer;
+}
+
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #e8eaed;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .email-top-icons {
+    position: absolute; /* Position it relative to the email-container */
+    top: 10px; /* Adjust the distance from the top */
+    left: 10px; /* Adjust the distance from the left */
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Space between icons */
+    background: none; /* No background */
+    padding: 0; /* Remove padding */
+    border: none; /* Remove any border */
+}
+
+.email-top-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0; /* Remove extra margin */
+}
+
+.email-top-icon:hover {
+    opacity: 0.8; /* Add a subtle hover effect */
+}
+.icon-divider {
+    width: 1px; /* Thin vertical line */
+    height: 24px; /* Match the height of the icons */
+    background-color: #d3d3d3; /* Light gray color for subtlety */
+    margin: 0 10px; /* Add spacing around the divider */
+}
+.labels-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Add spacing above the Labels section */
+    padding: 5px 10px;
+    font-size: 18px;
+    color: #ffffff; /* Subtle gray color */
+}
+
+.labels-title {
+    font-weight: bold; /* Slightly bold for the title */
+}
+
+.add-label-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* Match the text color */
+    cursor: pointer;
+    padding: 0;
+}
+
+.add-label-button:hover {
+    color: #202124; /* Darker color on hover */
+}
+.add-label-icon {
+    width: 16px; /* Adjust the size of the icon */
+    height: 16px;
+}
+
+/* Right Sidebar Styles */
+.right-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 60px;
+    background-color: transparent;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    z-index: 999;
+}
+
+.app-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.app-icon:hover {
+    background-color: #f1f3f4;
+}
+
+.app-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Adjust email container to account for right sidebar */
+.email-container {
+    margin-right: 60px;
+}
