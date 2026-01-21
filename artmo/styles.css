@@ -354,10 +354,9 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 26px 0;
+    margin: 5px 0;
     gap: 15px;
-    margin-top: -6px;
-
+    margin-top: 28px;
 }
 
 .message-profile-placeholder {
@@ -409,6 +408,7 @@ h1 {
 
 .report-content .support-option {
     margin-top: 15px;
+    margin-bottom: -24px;
 }
 
 .contact-box {
@@ -416,7 +416,7 @@ h1 {
     color: white;
     width: 80px;
     height: 80px;
-    margin: -21px auto;
+    margin: 11px auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,7 +515,7 @@ h1 {
 
 .email-footer {
     text-align: center;
-    margin-top: -7px;
+    margin-top: 40px;
     padding: 10px;
     margin-bottom: 0px;
 }
@@ -550,10 +550,11 @@ h1 {
 
 .email-body p {
     color: #333333;
-    line-height: 1.6;
+    line-height: 2.6;
     margin-bottom: 15px;
     font-size: 12px;
     font-family: Arial, sans-serif;
+    margin-top: -27px;
 }
 
 .email-body .email-text {
