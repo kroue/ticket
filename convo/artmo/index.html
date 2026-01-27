@@ -63,7 +63,17 @@
             font-weight: bolder;
             color: #1a1a1a;
             margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
+        .premium-badge {
+    height: 15px;
+    width: auto;
+    object-fit: contain;
+    margin-top: 4px;
+}
 
         .profile-details {
             font-size: 13px;
@@ -260,7 +270,10 @@
         <div class="profile-header">
             <img src="https://via.placeholder.com/48x48/333333/FFFFFF?text=MO" alt="Profile Avatar" class="profile-avatar">
             <div class="profile-info">
-                <div class="profile-name">julian amfon</div>
+                <div class="profile-name">
+                    julian amfon
+                    <img src="premium_badge.png" alt="Premium" class="premium-badge">
+                </div>
                 <div class="profile-details">Member • California City, California • United States</div>
             </div>
             <div class="more-button">⋮</div>
